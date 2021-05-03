@@ -238,7 +238,7 @@ Next chapter lists all our findings
 
 ### Identities
 
-<img src="https://render.githubusercontent.com/render/math?math=-((-a) + a) = -0 = 0"> **<span style="color:red">[!]</span> mentions operation 3 (operation and identity element)**
+<img src="https://render.githubusercontent.com/render/math?math=-((-a) %2b a) = -0 = 0"> **<span style="color:red">[!]</span> mentions operation 3 (operation and identity element)**
 
 ```python
 # 131aa = 31aa : -((-a)+a) = -0 = 0
@@ -290,7 +290,7 @@ assert op(2, op(3, op(1, a), a)) == op(3, op(1, a), a)
 
 ### Commutativity
 
-<img src="https://render.githubusercontent.com/render/math?math=a + b = b + a">
+<img src="https://render.githubusercontent.com/render/math?math=a %2b b = b %2b a">
 
 ```python
 # 3ab = 3ba : (a + b) = (b + a)
@@ -299,7 +299,7 @@ assert op(3, a, b) == op(3, b, a)
 
 ### Associativity
 
-<img src="https://render.githubusercontent.com/render/math?math=a + (b+c) = (a+b) +c">
+<img src="https://render.githubusercontent.com/render/math?math=a %2b (b%2bc) = (a%2bb) %2b c">
 
 ```python
 # 3a3bc = 33abc = 3abc :  a + (b + c) = (a + b) + c
@@ -308,7 +308,7 @@ assert op(3, a, op(3, b, c)) == op(3, op(3, a, b), c)
 
 ### Identity element
 
-<img src="https://render.githubusercontent.com/render/math?math=b + ((-a)+a) = b + 0 = b"> 
+<img src="https://render.githubusercontent.com/render/math?math=b %2b ((-a)%2ba) = b %2b 0 = b"> 
 
 ```python
 # 3b31aa = b : b + ((-a) + a) = b + 0 = b
@@ -318,7 +318,7 @@ assert op(3, b, op(3, op(1, a), a)) == b
 
 ### Inverse
 
-<img src="https://render.githubusercontent.com/render/math?math=(-a) + (a + b) = b">
+<img src="https://render.githubusercontent.com/render/math?math=(-a) %2b (a %2b b) = b">
 
 ```python
 # 31a3ab = b : (-a) + (a + b) = b
@@ -381,7 +381,7 @@ assert op(4, op(2, a), op(4, a, b)) == b
 
 ### Absorbing element
 
-<img src="https://render.githubusercontent.com/render/math?math=a * (b + (-b)) = a * 0 = 0">
+<img src="https://render.githubusercontent.com/render/math?math=a * (b %2b (-b)) = a * 0 = 0">
 
 ```python
 # 5a3b1b = 3b1b : a * (b + (-b)) = a*0 = 0
@@ -395,7 +395,7 @@ assert op(4, a, op(3, b, op(1, b))) == op(3, b, op(1, b))
 
 ### Distributivity of OP4 on OP3
 
-<img src="https://render.githubusercontent.com/render/math?math=a*(b+c) = a*b + a*c">
+<img src="https://render.githubusercontent.com/render/math?math=a*(b%2bc) = a*b %2b a*c">
 
 ```python
 # 4a3bc == 34ab4ac : a * (b + c) = ab + ac
@@ -404,7 +404,7 @@ assert op(4, a, op(3, b, c)) == op(3, op(4, a, b), op(4, a, c))
 
 ### Confirmations on op3 and op4 of being sum and multiplication
 
-<img src="https://render.githubusercontent.com/render/math?math=1+1+1+1 = (1+1) * (1+1)">
+<img src="https://render.githubusercontent.com/render/math?math=1%2b1%2b1%2b1 = (1%2b1) * (1%2b1)">
 
 ```python
 # 1 + 1 + 1 + 1 = 4 = (1 + 1) * (1 + 1)
@@ -412,7 +412,7 @@ n1 = op(4, op(2, a), a)
 assert op(3, n1, op(3, n1, op(3, n1, n1))) == op(4, op(3, n1, n1), op(3, n1, n1))
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=a * 2 = a + a">
+<img src="https://render.githubusercontent.com/render/math?math=a * 2 = a %2b a">
 
 ```python
 # a * 2 = a + a
@@ -422,7 +422,7 @@ assert op(4, a, n2) == op(3, a, a)
 
 ## Notes on OP1, OP2, OP3 and OP4
 
-> Earlier, we said that when we called operation 1, 2, 3, and 4, the output looks like `INPUTS SEPARATOR OUTPUT`, where separator is some string that looks like any other "number". After finding out that these operations are probably in modulo, we hypothesized that `SEPARATOR` is not actually a separator, but the modulo of operation. This seems to be correct since <img src="https://render.githubusercontent.com/render/math?math=0 + N = 0">, but we didn't investigate much further.
+> Earlier, we said that when we called operation 1, 2, 3, and 4, the output looks like `INPUTS SEPARATOR OUTPUT`, where separator is some string that looks like any other "number". After finding out that these operations are probably in modulo, we hypothesized that `SEPARATOR` is not actually a separator, but the modulo of operation. This seems to be correct since <img src="https://render.githubusercontent.com/render/math?math=0 %2b N = 0">, but we didn't investigate much further.
 
 ---
 
@@ -624,7 +624,7 @@ assert op(6, op(6, a, b), c) == op(6, a, op(5, b, c))
 assert op(6, a, op(1, n1)) != op(2, a)
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=a^b\ ?\ a^c \ne a^{(b + c)}">
+<img src="https://render.githubusercontent.com/render/math?math=a^b\ ?\ a^c \ne a^{(b %2b c)}">
 
 ```python
 # a^b ? a^c != a^(b + c)
@@ -689,7 +689,7 @@ assert op(5, op(6, a, c), op(6, b, c)) == op(6, op(5, a, b), c)
 
 > Our goal is to find A and B for the equation `A = 3356D4C2B6E4A2BF1F` (prefix notation), or, using the symbols we defined earlier: 
 > 
-> <img src="https://render.githubusercontent.com/render/math?math=D \wedge (C * 1/B)\ ?\ E \wedge (A*1/B) + F + (-F) = A">
+> <img src="https://render.githubusercontent.com/render/math?math=D \wedge (C * 1/B)\ ?\ E \wedge (A*1/B) %2b F %2b (-F) = A">
 > 
 > We can rewrite this (because of associativity of + and because -F is the inverse of F) as 
 > 
