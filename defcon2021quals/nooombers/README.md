@@ -232,20 +232,20 @@ Next chapter lists all our findings
 
 ---
 
-## OP1 [ $-x$ ]
+## OP1 [ -x ]
 
 > This operation acts like the **additive inversion** (with op3 being the addition), probably **modulo N**
 
 ### Identities
 
-$-((-a) + a) = -0 = 0$ **<span style="color:red">[!]</span> mentions operation 3 (operation and identity element)**
+<img src="https://render.githubusercontent.com/render/math?math=-((-a) + a) = -0 = 0"> **<span style="color:red">[!]</span> mentions operation 3 (operation and identity element)**
 
 ```python
 # 131aa = 31aa : -((-a)+a) = -0 = 0
 assert op(1, op(3, op(1, a), a)) == op(3, op(1, a), a)
 ```
 
-$-(-a) = a$
+<img src="https://render.githubusercontent.com/render/math?math=-(-a) = a">
 
 ```python
 # 11a = a : -(-a) = a
@@ -254,28 +254,28 @@ assert op(1, op(1, a)) == a
 
 ---
 
-## OP2 [ $1/x$ ]
+## OP2 [ 1/x ]
 
 > This operation acts like the **multiplicative inversion** (with op4 being the multiplication), probably **modulo N**
 
 
 ### Identities
 
-$1/(a*(1/a)) = 1/1 = 1$ **<span style="color:red">[!]</span> mentions operation 4 (operation and identity element)**
+<img src="https://render.githubusercontent.com/render/math?math=1/(a*(1/a)) = 1/1 = 1"> **<span style="color:red">[!]</span> mentions operation 4 (operation and identity element)**
 
 ```python
 # 242aa = 42aa : 1/(a*(1/a)) = 1/1 = 1
 assert op(2, op(4, op(2, a), a)) == op(4, op(2, a), a)
 ```
 
-$1/(1/a) = a$
+<img src="https://render.githubusercontent.com/render/math?math=1/(1/a) = a">
 
 ```python
 # 22a = a : 1/(1/a) = a
 assert op(2, op(2, a)) == a
 ```
 
-$1/0 = 0$ **<span style="color:red">[!]</span> mentions operation 3 (operation and identity element)**
+<img src="https://render.githubusercontent.com/render/math?math=1/0 = 0"> **<span style="color:red">[!]</span> mentions operation 3 (operation and identity element)**
 
 ```python
 # 231aa = 31aa : 1/((-a)+a)) = 1/0 = 0
@@ -284,13 +284,13 @@ assert op(2, op(3, op(1, a), a)) == op(3, op(1, a), a)
 
 ---
 
-## OP3 [ $a+b$, $0$ identity element, $-x$ inverse ]
+## OP3 [ a+b, 0 identity element, -x inverse ]
 
 > This operation acts like the **addition**, probably **modulo N**
 
 ### Commutativity
 
-$a + b = b + a$
+<img src="https://render.githubusercontent.com/render/math?math=a + b = b + a">
 
 ```python
 # 3ab = 3ba : (a + b) = (b + a)
@@ -299,7 +299,7 @@ assert op(3, a, b) == op(3, b, a)
 
 ### Associativity
 
-$a + (b+c) = (a+b) +c$
+<img src="https://render.githubusercontent.com/render/math?math=a + (b+c) = (a+b) +c">
 
 ```python
 # 3a3bc = 33abc = 3abc :  a + (b + c) = (a + b) + c
@@ -308,7 +308,7 @@ assert op(3, a, op(3, b, c)) == op(3, op(3, a, b), c)
 
 ### Identity element
 
-$b + ((-a)+a) = b + 0 = b$ 
+<img src="https://render.githubusercontent.com/render/math?math=b + ((-a)+a) = b + 0 = b"> 
 
 ```python
 # 3b31aa = b : b + ((-a) + a) = b + 0 = b
@@ -318,7 +318,7 @@ assert op(3, b, op(3, op(1, a), a)) == b
 
 ### Inverse
 
-$(-a) + (a + b) = b$
+<img src="https://render.githubusercontent.com/render/math?math=(-a) + (a + b) = b">
 
 ```python
 # 31a3ab = b : (-a) + (a + b) = b
@@ -328,13 +328,13 @@ assert op(3, op(1, a), op(3, a, b)) == b
 
 ---
 
-## OP4 [ $a * b$, $1$ identity element, $1/x$ inverse, $0$ absorbing element ]
+## OP4 [ a*b, 1 identity element, 1/x inverse, 0 absorbing element ]
 
 > This operation acts like the **multiplication**, probably **modulo N**
 
 ### Commutativity
 
-$a * b = b * a$
+<img src="https://render.githubusercontent.com/render/math?math=a * b = b * a">
 
 ```python
 # 4ab = 4ba : ab = ba
@@ -343,7 +343,7 @@ assert op(4, a, b) == op(4, b, a)
 
 ### Associativity
 
-$a * (b*c) = (a*b) * c$
+<img src="https://render.githubusercontent.com/render/math?math=a * (b*c) = (a*b) * c">
 
 ```python
 # 4a4bc = 44abc = 4abc : a*(b*c) = (a*b)*c
@@ -352,7 +352,7 @@ assert op(4, a, op(4, b, c)) == op(4, op(4, a, b), c)
 
 ### Identity element
 
-$b * (1/a * a) = b * 1 = b$
+<img src="https://render.githubusercontent.com/render/math?math=b * (1/a * a) = b * 1 = b">
 
 ```python
 # 4b42aa = b : b * (1/a * a) = b * 1 = b
@@ -360,7 +360,7 @@ assert op(4, b, op(4, op(2, a), a))
 # together with other permutations (because of commutativity)
 ```
 
-$b * (1/a\ ?\ a) = b * @ = b$, $(@ \ne 1)$ **<span style="color:red">[!]</span> mentions operation 5 (operation and identity element)**
+<img src="https://render.githubusercontent.com/render/math?math=b * (1/a\ ?\ a) = b * @ = b">, <img src="https://render.githubusercontent.com/render/math?math=(@ \ne 1)"> **<span style="color:red">[!]</span> mentions operation 5 (operation and identity element)**
 
 
 ```python
@@ -371,7 +371,7 @@ assert op(4, b, op(5, op(2, a), a))
 
 ### Inverse
 
-$1/a * (a * b) = b$
+<img src="https://render.githubusercontent.com/render/math?math=1/a * (a * b) = b">
 
 ```python
 # 42a4ab = b : 1/a * (a * b) = 1 * b = b
@@ -381,7 +381,7 @@ assert op(4, op(2, a), op(4, a, b)) == b
 
 ### Absorbing element
 
-$a * (b + (-b)) = a * 0 = 0$
+<img src="https://render.githubusercontent.com/render/math?math=a * (b + (-b)) = a * 0 = 0">
 
 ```python
 # 5a3b1b = 3b1b : a * (b + (-b)) = a*0 = 0
@@ -395,7 +395,7 @@ assert op(4, a, op(3, b, op(1, b))) == op(3, b, op(1, b))
 
 ### Distributivity of OP4 on OP3
 
-$a*(b+c) = a*b + a*c$
+<img src="https://render.githubusercontent.com/render/math?math=a*(b+c) = a*b + a*c">
 
 ```python
 # 4a3bc == 34ab4ac : a * (b + c) = ab + ac
@@ -404,7 +404,7 @@ assert op(4, a, op(3, b, c)) == op(3, op(4, a, b), op(4, a, c))
 
 ### Confirmations on op3 and op4 of being sum and multiplication
 
-$1+1+1+1 = (1+1) * (1+1)$
+<img src="https://render.githubusercontent.com/render/math?math=1+1+1+1 = (1+1) * (1+1)">
 
 ```python
 # 1 + 1 + 1 + 1 = 4 = (1 + 1) * (1 + 1)
@@ -412,7 +412,7 @@ n1 = op(4, op(2, a), a)
 assert op(3, n1, op(3, n1, op(3, n1, n1))) == op(4, op(3, n1, n1), op(3, n1, n1))
 ```
 
-$a * 2 = a + a$
+<img src="https://render.githubusercontent.com/render/math?math=a * 2 = a + a">
 
 ```python
 # a * 2 = a + a
@@ -422,23 +422,23 @@ assert op(4, a, n2) == op(3, a, a)
 
 ## Notes on OP1, OP2, OP3 and OP4
 
-> Earlier, we said that when we called operation 1, 2, 3, and 4, the output looks like `INPUTS SEPARATOR OUTPUT`, where separator is some string that looks like any other "number". After finding out that these operations are probably in modulo, we hypothesized that `SEPARATOR` is not actually a separator, but the modulo of operation. This seems to be correct since $0 + N = 0$, but we didn't investigate much further.
+> Earlier, we said that when we called operation 1, 2, 3, and 4, the output looks like `INPUTS SEPARATOR OUTPUT`, where separator is some string that looks like any other "number". After finding out that these operations are probably in modulo, we hypothesized that `SEPARATOR` is not actually a separator, but the modulo of operation. This seems to be correct since <img src="https://render.githubusercontent.com/render/math?math=0 + N = 0">, but we didn't investigate much further.
 
 ---
 
-## OP5 [ $a\ ?\ b$, $1$ identity element, $*\ 1/x$ invers-ish, $0$ absorbing element ]
+## OP5 [ a ? b, 1 identity element, *1/x invers-ish, 0 absorbing element ]
 
 > This was a weird one, this operations acts like op4, except it doesn't in some cases. It gives back the exact same results for small numbers (obtained adding 1, the identity element of op3, a bunch of times), but with numbers given by op0 it acts differently (probably because they are really big). 
 
 > It seems like this is **multiplication** with **some other modulo** or maybe with **no modulo**. It probably just has a bigger modulo since we couldn't make it overflow or anything like that.
 
-> This would explain why $1/a∗(a\ ?\ b)=b$ (using * everything goes back to modulo N), while  $1/a\ ?\ (a\ ?\ b)\ne b$ (1/a is a different number than the inverse of a with respect to op5, since they have a different modulo).
+> This would explain why <img src="https://render.githubusercontent.com/render/math?math=1/a*(a\ ?\ b)=b"> (using * everything goes back to modulo N), while  <img src="https://render.githubusercontent.com/render/math?math=1/a\ ?\ (a\ ?\ b)\ne b"> (1/a is a different number than the inverse of a with respect to op5, since they have a different modulo).
 > 
-> Some other things we didn't write here point in this direction too, like $1* (a\ ?\ b) = 1* (a * b)$ even though $(a\ ?\ b) \ne (a * b)$. 
+> Some other things we didn't write here point in this direction too, like <img src="https://render.githubusercontent.com/render/math?math=1* (a\ ?\ b) = 1* (a * b)"> even though <img src="https://render.githubusercontent.com/render/math?math=(a\ ?\ b) \ne (a * b)">. 
 
 ### Commutativity
 
-$a\ ?\ b = b\ ?\ a$
+<img src="https://render.githubusercontent.com/render/math?math=a\ ?\ b = b\ ?\ a">
 
 ```python
 # 5ab = 5ba : a ? b = b ? a
@@ -447,7 +447,7 @@ assert op(5, a, b) == op(5, b, a)
 
 ### Associativity
 
-$a\ ?\ (b\ ?\ c) = (a\ ?\ b)\ ?\ c$
+<img src="https://render.githubusercontent.com/render/math?math=a\ ?\ (b\ ?\ c) = (a\ ?\ b)\ ?\ c">
 
 ```python
 # 5a5bc = 55abc = 5abc : a ? (b ? c) = (a ? b) ? c
@@ -456,7 +456,7 @@ assert op(5, a, op(5, b, c)) ==  op(5, op(5, a, b), c)
 
 ### Identity element
 
-$b\ ?\ 1 = b$
+<img src="https://render.githubusercontent.com/render/math?math=b\ ?\ 1 = b">
 
 ```python
 # 5b4a2a = b : b ? (a*1/a) = b ? 1 = b
@@ -466,7 +466,7 @@ assert op(5, b, op(4, a, op(2, a))) == b
 
 ### Absorbing element
 
-$b\ ?\ 0 = 0$
+<img src="https://render.githubusercontent.com/render/math?math=b\ ?\ 0 = 0">
 
 ```python
 5b3a1a = 3a1a : b ? (a+(-a)) = b ? 0 = 0
@@ -476,7 +476,7 @@ assert op(5, b, op(3, a, op(1, a))) == op(3, a, op(1, a))
 
 ### Invers-ish
 
-$1/a * (a\ ?\ b) = b$
+<img src="https://render.githubusercontent.com/render/math?math=1/a * (a\ ?\ b) = b">
 
 ```python
 # 42a5ab = b : 1/a * (a ? b) = b
@@ -484,7 +484,7 @@ assert op(4, op(2, a), op(5, a, b)) == b
 # together with other permutations (because of commutativity)
 ```
 
-$1/a\ ?\ (a\ ?\ b) \ne b$
+<img src="https://render.githubusercontent.com/render/math?math=1/a\ ?\ (a\ ?\ b) \ne b">
 
 ```python
 # 52a5ab != b : 1/a ? a ? b != b
@@ -493,28 +493,28 @@ assert op(5, op(2, a), op(5, a, b)) != b
 
 ### Identities
 
-$@ * @ = 1$
+<img src="https://render.githubusercontent.com/render/math?math=@ * @ = 1">
 
 ```python
 # 452aa52aa = 42aa : (1/a ? a) * (1/a ? a) = @ * @ = 1
 assert op(4, op(5, op(2, a), a), op(5, op(2, a), a)) == op(4, op(2, a), a)
 ```
 
-$1/@ = 1$
+<img src="https://render.githubusercontent.com/render/math?math=1/@ = 1">
 
 ```python
 # 252aa = 42aa : 1/(1/a ? a) = 1/@ = 1
 assert op(2, op(5, op(2, a), a)) == op(4, op(2, a), a)
 ```
 
-$-@ = -1$
+<img src="https://render.githubusercontent.com/render/math?math=-@ = -1">
 
 ```python
 # 152aa = 142aa : -(1/a ? a) = -@ != -1 = -(1/a * a)
 assert op(1, op(5, op(2, a), a)) == op(1, op(4, op(2, a), a))
 ```
 
-$@ \ne 1$
+<img src="https://render.githubusercontent.com/render/math?math=@ \ne 1">
 
 ```python
 # 52aa != 42aa : (1/a ? a) = @ != 1 = (1/a * a)
@@ -523,14 +523,14 @@ assert op(5, op(2, a), a) != op(4, op(2, a), a)
 
 ---
 
-## OP6 [ $a ^ b$, $1$ right identity element, $1$ e $0$ left absorbing elements ]
+## OP6 [ a^b, 1 right identity element, 1 and 0 left absorbing elements ]
 
 > This operation acts like **exponentiation** with **no modulo** or **with the same modulo as op5**. It behaves well with op5, exponentiation rules work with it, while they often don't work with op4 (unless we're using small numbers)
 > 
 
 ### NO Commutativity
 
-$a^b \ne b^a$
+<img src="https://render.githubusercontent.com/render/math?math=a^b \ne b^a">
 
 ```python
 #6ab != 6ba : a ! b != b ! a
@@ -539,7 +539,7 @@ assert op(6, a, b) != op(6, b, a)
 
 ### NO Associativity
 
-$a^{(b^c)} \ne (a^b)^c$
+<img src="https://render.githubusercontent.com/render/math?math=a^{(b^c)} \ne (a^b)^c">
 
 ```python
 # 6a6bc != 66abc : a ! (b ! c) != (a ! b) ! c
@@ -548,7 +548,7 @@ assert op(6, a, op(6, b, c)) != op(6, op(6, a, b), c)
 
 ### Right identity element
 
-$x^1 = x$
+<img src="https://render.githubusercontent.com/render/math?math=x^1 = x">
 
 ```python
 # 6b42aa = b : b ! (1/a * a) = b ! 1 = b
@@ -557,14 +557,14 @@ assert op(6, b, op(4, op(2, a), a)) == b
 
 ### Left absorbing elements
 
-$1^x = 1$
+<img src="https://render.githubusercontent.com/render/math?math=1^x = 1">
 
 ```python
 # 642aab = 42aa : (1/a * a) ! b = 1 ! b = 1
 assert op(6, op(4, op(2, a), a), b) == op(4, op(2, a), a)
 ```
 
-$0^x = 0$
+<img src="https://render.githubusercontent.com/render/math?math=0^x = 0">
 
 ```python
 # 631aab = 31aa : ((-a) + a) ! b = 0 ! b = 0
@@ -573,7 +573,7 @@ assert op(6, op(3, op(1, a), a), b) == op(3, op(1, a), a)
 
 ### Identities
 
-$x^0 = 1$
+<img src="https://render.githubusercontent.com/render/math?math=x^0 = 1">
 
 ```python
 # 6a31aa = 42aa : a ! ((-a) + a) = a ! 0 = 1 = (1/a * a)
@@ -587,11 +587,11 @@ assert op(6, b, op(3, op(1, a), a)) == op(4, op(2, a), a)
 
 ### Confirmations and doubts on exponentiation
 
-$3^2 = 3*3$
+<img src="https://render.githubusercontent.com/render/math?math=3^2 = 3*3">
 
-$a^2 \ne a*a$
+<img src="https://render.githubusercontent.com/render/math?math=a^2 \ne a*a">
 
-$a^2 = a\ ?\ a$
+<img src="https://render.githubusercontent.com/render/math?math=a^2 = a\ ?\ a">
 
 ```python
 # 3 ^ 2 = 3 * 3
@@ -602,11 +602,11 @@ assert op(6, b, n2) != op(4, b, b)
 assert op(6, b, n2) != op(4, b, b)
 ```
 
-$(2^3)^4 = 2^{(3*4)}$
+<img src="https://render.githubusercontent.com/render/math?math=(2^3)^4 = 2^{(3*4)}">
 
-$(a^b)^c \ne a^{bc}$
+<img src="https://render.githubusercontent.com/render/math?math=(a^b)^c \ne a^{bc}">
 
-$(a^b)^c = a^{(b\ ?\ c)}$
+<img src="https://render.githubusercontent.com/render/math?math=(a^b)^c = a^{(b\ ?\ c)}">
 
 ```python
 # (2 ^ 3) ^ 4 = 2 ^ (3*4)
@@ -617,21 +617,21 @@ assert op(6, op(6, a, b), c) != op(6, a, op(4, b, c))
 assert op(6, op(6, a, b), c) == op(6, a, op(5, b, c))
 ```
 
-$a^{-1} \ne 1/a$
+<img src="https://render.githubusercontent.com/render/math?math=a^{-1} \ne 1/a">
 
 ```python
 # a ^ -1 != 1/a
 assert op(6, a, op(1, n1)) != op(2, a)
 ```
 
-$a^b\ ?\ a^c \ne a^{(b + c)}$
+<img src="https://render.githubusercontent.com/render/math?math=a^b\ ?\ a^c \ne a^{(b + c)}">
 
 ```python
 # a^b ? a^c != a^(b + c)
 assert op(5, op(6, a, b), op(6, a, c)) != op(6, a, op(5, b, c))
 ```
 
-$a^c\ ?\ b^c = (a\ ?\ b)^c$
+<img src="https://render.githubusercontent.com/render/math?math=a^c\ ?\ b^c = (a\ ?\ b)^c">
 
 ```python
 # a^c ? b^c = (a ? b)^c
@@ -688,18 +688,26 @@ assert op(5, op(6, a, c), op(6, b, c)) == op(6, op(5, a, b), c)
 ```
 
 > Our goal is to find A and B for the equation `A = 3356D4C2B6E4A2BF1F` (prefix notation), or, using the symbols we defined earlier: 
-> $$D \wedge (C * 1/B)\ ?\ E \wedge (A*1/B) + F + (-F) = A$$
+> 
+> <img src="https://render.githubusercontent.com/render/math?math=D \wedge (C * 1/B)\ ?\ E \wedge (A*1/B) + F + (-F) = A">
+> 
 > We can rewrite this (because of associativity of + and because -F is the inverse of F) as 
-> $$D \wedge (C * 1/B)\ ?\ E \wedge (A*1/B) = A$$
+> 
+> <img src="https://render.githubusercontent.com/render/math?math=D \wedge (C * 1/B)\ ?\ E \wedge (A*1/B) = A">
+> 
 > Now, we can rewrite this (thanks to the property of the exponentiation) as
-> $$(D \wedge C) \wedge (1/B)\ ?\ (E \wedge A) \wedge (1/B) = A$$
-> This pass might seem wrong because the operator * is used inside the exponent, and not the operator ?. However, because in the original equation, we add and subtract F, the result is modulo $N$, so everything should work properly.
+> 
+> <img src="https://render.githubusercontent.com/render/math?math=(D \wedge C) \wedge (1/B)\ ?\ (E \wedge A) \wedge (1/B) = A">
+> 
+> This pass might seem wrong because the operator * is used inside the exponent, and not the operator ?. However, because in the original equation, we add and subtract F, the result is modulo <img src="https://render.githubusercontent.com/render/math?math=N">, so everything should work properly.
 > Next, thanks to another property of exponentiation, we can rewrite as
-> $$(D \wedge C\ ?\ E \wedge A) \wedge (1/B) = A$$
+> 
+> <img src="https://render.githubusercontent.com/render/math?math=(D \wedge C\ ?\ E \wedge A) \wedge (1/B) = A">
+> 
 
 > At this point, we can either continue trying to solve the equation for A or B, or try some numbers. We lost quite some time thinking that maybe we should find the modulo of op6, and we tried some strategies, but we realized that the modulo changed every time, and that it was also probably not the correct way to solve the challenge. So, we tried some numbers.
 > 
-> Since $1/0 = 0$, and $x^0 = 1$, forcing $B=0$ makes the $LHS = 1$. We can now force $A = 1$, which makes the $RHS = 1$, and the equation is solved.
+> Since <img src="https://render.githubusercontent.com/render/math?math=1/0 = 0">, and <img src="https://render.githubusercontent.com/render/math?math=x^0 = 1">, forcing <img src="https://render.githubusercontent.com/render/math?math=B=0"> makes the <img src="https://render.githubusercontent.com/render/math?math=\text{LHS} = 1">. We can now force <img src="https://render.githubusercontent.com/render/math?math=A = 1">, which makes the <img src="https://render.githubusercontent.com/render/math?math=\text{RHS} = 1">, and the equation is solved.
 
 # Getting the flag
 
