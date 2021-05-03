@@ -356,16 +356,16 @@ assert op(4, a, op(4, b, c)) == op(4, op(4, a, b), c)
 
 ```python
 # 4b42aa = b : b * (1/a * a) = b * 1 = b
-assert op(4, b, op(4, op(2, a), a))
+assert op(4, b, op(4, op(2, a), a)) == b
 # together with other permutations (because of commutativity)
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=b * (1/a\ ?\ a) = b * @ = b">, <img src="https://render.githubusercontent.com/render/math?math=(@ \ne 1)"> **<span style="color:red">[!]</span> mentions operation 5 (operation and identity element)**
+<img src="https://render.githubusercontent.com/render/math?math=b * (1/a\timesa) = b * @ = b">, <img src="https://render.githubusercontent.com/render/math?math=(@ \ne 1)"> **<span style="color:red">[!]</span> mentions operation 5 (operation and identity element)**
 
 
 ```python
-# 4b52aa = b : b * (1/a ? a) = b *
-assert op(4, b, op(5, op(2, a), a))
+# 4b52aa = b : b * (1/a × a) = b
+assert op(4, b, op(5, op(2, a), a)) == b
 # together with other permutations (because of commutativity)
 ```
 
@@ -426,68 +426,68 @@ assert op(4, a, n2) == op(3, a, a)
 
 ---
 
-## OP5 [ a ? b, 1 identity element, *1/x invers-ish, 0 absorbing element ]
+## OP5 [ a × b, 1 identity element, *1/x invers-ish, 0 absorbing element ]
 
 > This was a weird one, this operations acts like op4, except it doesn't in some cases. It gives back the exact same results for small numbers (obtained adding 1, the identity element of op3, a bunch of times), but with numbers given by op0 it acts differently (probably because they are really big). 
 
 > It seems like this is **multiplication** with **some other modulo** or maybe with **no modulo**. It probably just has a bigger modulo since we couldn't make it overflow or anything like that.
 
-> This would explain why <img src="https://render.githubusercontent.com/render/math?math=1/a*(a\ ?\ b)=b"> (using * everything goes back to modulo N), while  <img src="https://render.githubusercontent.com/render/math?math=1/a\ ?\ (a\ ?\ b)\ne b"> (1/a is a different number than the inverse of a with respect to op5, since they have a different modulo).
+> This would explain why <img src="https://render.githubusercontent.com/render/math?math=1/a*(a\timesb)=b"> (using * everything goes back to modulo N), while  <img src="https://render.githubusercontent.com/render/math?math=1/a\times(a\timesb)\ne b"> (1/a is a different number than the inverse of a with respect to op5, since they have a different modulo).
 > 
-> Some other things we didn't write here point in this direction too, like <img src="https://render.githubusercontent.com/render/math?math=1* (a\ ?\ b) = 1* (a * b)"> even though <img src="https://render.githubusercontent.com/render/math?math=(a\ ?\ b) \ne (a * b)">. 
+> Some other things we didn't write here point in this direction too, like <img src="https://render.githubusercontent.com/render/math?math=1* (a\timesb) = 1* (a * b)"> even though <img src="https://render.githubusercontent.com/render/math?math=(a\timesb) \ne (a * b)">. 
 
 ### Commutativity
 
-<img src="https://render.githubusercontent.com/render/math?math=a\ ?\ b = b\ ?\ a">
+<img src="https://render.githubusercontent.com/render/math?math=a\timesb = b\timesa">
 
 ```python
-# 5ab = 5ba : a ? b = b ? a
+# 5ab = 5ba : a × b = b × a
 assert op(5, a, b) == op(5, b, a)
 ```
 
 ### Associativity
 
-<img src="https://render.githubusercontent.com/render/math?math=a\ ?\ (b\ ?\ c) = (a\ ?\ b)\ ?\ c">
+<img src="https://render.githubusercontent.com/render/math?math=a\times(b\timesc) = (a\timesb)\timesc">
 
 ```python
-# 5a5bc = 55abc = 5abc : a ? (b ? c) = (a ? b) ? c
+# 5a5bc = 55abc = 5abc : a × (b × c) = (a × b) × c
 assert op(5, a, op(5, b, c)) ==  op(5, op(5, a, b), c)
 ```
 
 ### Identity element
 
-<img src="https://render.githubusercontent.com/render/math?math=b\ ?\ 1 = b">
+<img src="https://render.githubusercontent.com/render/math?math=b\times1 = b">
 
 ```python
-# 5b4a2a = b : b ? (a*1/a) = b ? 1 = b
+# 5b4a2a = b : b × (a*1/a) = b × 1 = b
 assert op(5, b, op(4, a, op(2, a))) == b
 # together with other permutations (because of commutativity)
 ```
 
 ### Absorbing element
 
-<img src="https://render.githubusercontent.com/render/math?math=b\ ?\ 0 = 0">
+<img src="https://render.githubusercontent.com/render/math?math=b\times0 = 0">
 
 ```python
-5b3a1a = 3a1a : b ? (a+(-a)) = b ? 0 = 0
+5b3a1a = 3a1a : b × (a+(-a)) = b × 0 = 0
 assert op(5, b, op(3, a, op(1, a))) == op(3, a, op(1, a))
 # together with other permutations (because of commutativity)
 ```
 
 ### Invers-ish
 
-<img src="https://render.githubusercontent.com/render/math?math=1/a * (a\ ?\ b) = b">
+<img src="https://render.githubusercontent.com/render/math?math=1/a * (a\timesb) = b">
 
 ```python
-# 42a5ab = b : 1/a * (a ? b) = b
+# 42a5ab = b : 1/a * (a × b) = b
 assert op(4, op(2, a), op(5, a, b)) == b
 # together with other permutations (because of commutativity)
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=1/a\ ?\ (a\ ?\ b) \ne b">
+<img src="https://render.githubusercontent.com/render/math?math=1/a\times(a\timesb) \ne b">
 
 ```python
-# 52a5ab != b : 1/a ? a ? b != b
+# 52a5ab != b : 1/a × a × b != b
 assert op(5, op(2, a), op(5, a, b)) != b
 ```
 
@@ -496,28 +496,28 @@ assert op(5, op(2, a), op(5, a, b)) != b
 <img src="https://render.githubusercontent.com/render/math?math=@ * @ = 1">
 
 ```python
-# 452aa52aa = 42aa : (1/a ? a) * (1/a ? a) = @ * @ = 1
+# 452aa52aa = 42aa : (1/a × a) * (1/a × a) = @ * @ = 1
 assert op(4, op(5, op(2, a), a), op(5, op(2, a), a)) == op(4, op(2, a), a)
 ```
 
 <img src="https://render.githubusercontent.com/render/math?math=1/@ = 1">
 
 ```python
-# 252aa = 42aa : 1/(1/a ? a) = 1/@ = 1
+# 252aa = 42aa : 1/(1/a × a) = 1/@ = 1
 assert op(2, op(5, op(2, a), a)) == op(4, op(2, a), a)
 ```
 
 <img src="https://render.githubusercontent.com/render/math?math=-@ = -1">
 
 ```python
-# 152aa = 142aa : -(1/a ? a) = -@ != -1 = -(1/a * a)
+# 152aa = 142aa : -(1/a × a) = -@ != -1 = -(1/a * a)
 assert op(1, op(5, op(2, a), a)) == op(1, op(4, op(2, a), a))
 ```
 
 <img src="https://render.githubusercontent.com/render/math?math=@ \ne 1">
 
 ```python
-# 52aa != 42aa : (1/a ? a) = @ != 1 = (1/a * a)
+# 52aa != 42aa : (1/a × a) = @ != 1 = (1/a * a)
 assert op(5, op(2, a), a) != op(4, op(2, a), a)
 ```
 
@@ -591,14 +591,14 @@ assert op(6, b, op(3, op(1, a), a)) == op(4, op(2, a), a)
 
 <img src="https://render.githubusercontent.com/render/math?math=a^2 \ne a*a">
 
-<img src="https://render.githubusercontent.com/render/math?math=a^2 = a\ ?\ a">
+<img src="https://render.githubusercontent.com/render/math?math=a^2 = a\timesa">
 
 ```python
 # 3 ^ 2 = 3 * 3
 assert op(6, n3, n2) == op(4, n3, n3)
 # a ^ 2 != a * a
 assert op(6, b, n2) != op(4, b, b)
-# a ^ 2 = a ? a
+# a ^ 2 = a × a
 assert op(6, b, n2) != op(4, b, b)
 ```
 
@@ -606,14 +606,14 @@ assert op(6, b, n2) != op(4, b, b)
 
 <img src="https://render.githubusercontent.com/render/math?math=(a^b)^c \ne a^{bc}">
 
-<img src="https://render.githubusercontent.com/render/math?math=(a^b)^c = a^{(b\ ?\ c)}">
+<img src="https://render.githubusercontent.com/render/math?math=(a^b)^c = a^{(b\timesc)}">
 
 ```python
 # (2 ^ 3) ^ 4 = 2 ^ (3*4)
 assert op(6, op(6, n2, n3), n4) == op(6, n2, op(4, n3, n4))
 # (a ^ b) ^ c != a ^ (b*c)
 assert op(6, op(6, a, b), c) != op(6, a, op(4, b, c))
-# (a ^ b) ^ c = a ^ (b ? c)
+# (a ^ b) ^ c = a ^ (b × c)
 assert op(6, op(6, a, b), c) == op(6, a, op(5, b, c))
 ```
 
@@ -624,17 +624,17 @@ assert op(6, op(6, a, b), c) == op(6, a, op(5, b, c))
 assert op(6, a, op(1, n1)) != op(2, a)
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=a^b\ ?\ a^c \ne a^{(b %2b c)}">
+<img src="https://render.githubusercontent.com/render/math?math=a^b\timesa^c \ne a^{(b %2b c)}">
 
 ```python
-# a^b ? a^c != a^(b + c)
+# a^b × a^c != a^(b + c)
 assert op(5, op(6, a, b), op(6, a, c)) != op(6, a, op(5, b, c))
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=a^c\ ?\ b^c = (a\ ?\ b)^c">
+<img src="https://render.githubusercontent.com/render/math?math=a^c\timesb^c = (a\timesb)^c">
 
 ```python
-# a^c ? b^c = (a ? b)^c
+# a^c × b^c = (a × b)^c
 assert op(5, op(6, a, c), op(6, b, c)) == op(6, op(5, a, b), c)
 ```
 
@@ -689,20 +689,20 @@ assert op(5, op(6, a, c), op(6, b, c)) == op(6, op(5, a, b), c)
 
 > Our goal is to find A and B for the equation `A = 3356D4C2B6E4A2BF1F` (prefix notation), or, using the symbols we defined earlier: 
 > 
-> <img src="https://render.githubusercontent.com/render/math?math=D \wedge (C * 1/B)\ ?\ E \wedge (A*1/B) %2b F %2b (-F) = A">
+> <img src="https://render.githubusercontent.com/render/math?math=D \wedge (C * 1/B) \times E \wedge (A*1/B) %2b F %2b (-F) = A">
 > 
 > We can rewrite this (because of associativity of + and because -F is the inverse of F) as 
 > 
-> <img src="https://render.githubusercontent.com/render/math?math=D \wedge (C * 1/B)\ ?\ E \wedge (A*1/B) = A">
+> <img src="https://render.githubusercontent.com/render/math?math=D \wedge (C * 1/B) \times E \wedge (A*1/B) = A">
 > 
 > Now, we can rewrite this (thanks to the property of the exponentiation) as
 > 
-> <img src="https://render.githubusercontent.com/render/math?math=(D \wedge C) \wedge (1/B)\ ?\ (E \wedge A) \wedge (1/B) = A">
+> <img src="https://render.githubusercontent.com/render/math?math=(D \wedge C) \wedge (1/B) \times (E \wedge A) \wedge (1/B) = A">
 > 
-> This pass might seem wrong because the operator * is used inside the exponent, and not the operator ?. However, because in the original equation, we add and subtract F, the result is modulo <img src="https://render.githubusercontent.com/render/math?math=N">, so everything should work properly.
+> This pass might seem wrong because the operator * is used inside the exponent, and not the operator ×. However, because in the original equation, we add and subtract F, the result is modulo <img src="https://render.githubusercontent.com/render/math?math=N">, so everything should work properly.
 > Next, thanks to another property of exponentiation, we can rewrite as
 > 
-> <img src="https://render.githubusercontent.com/render/math?math=(D \wedge C\ ?\ E \wedge A) \wedge (1/B) = A">
+> <img src="https://render.githubusercontent.com/render/math?math=(D \wedge C \times E \wedge A) \wedge (1/B) = A">
 > 
 
 > At this point, we can either continue trying to solve the equation for A or B, or try some numbers. We lost quite some time thinking that maybe we should find the modulo of op6, and we tried some strategies, but we realized that the modulo changed every time, and that it was also probably not the correct way to solve the challenge. So, we tried some numbers.
