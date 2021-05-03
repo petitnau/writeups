@@ -360,7 +360,7 @@ assert op(4, b, op(4, op(2, a), a)) == b
 # together with other permutations (because of commutativity)
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=b * (1/a\timesa) = b * @ = b">, <img src="https://render.githubusercontent.com/render/math?math=(@ \ne 1)"> **<span style="color:red">[!]</span> mentions operation 5 (operation and identity element)**
+<img src="https://render.githubusercontent.com/render/math?math=b * (1/a	imes a) = b * @ = b">, <img src="https://render.githubusercontent.com/render/math?math=(@ \ne 1)"> **<span style="color:red">[!]</span> mentions operation 5 (operation and identity element)**
 
 
 ```python
@@ -432,13 +432,13 @@ assert op(4, a, n2) == op(3, a, a)
 
 > It seems like this is **multiplication** with **some other modulo** or maybe with **no modulo**. It probably just has a bigger modulo since we couldn't make it overflow or anything like that.
 
-> This would explain why <img src="https://render.githubusercontent.com/render/math?math=1/a*(a\timesb)=b"> (using * everything goes back to modulo N), while  <img src="https://render.githubusercontent.com/render/math?math=1/a\times(a\timesb)\ne b"> (1/a is a different number than the inverse of a with respect to op5, since they have a different modulo).
+> This would explain why <img src="https://render.githubusercontent.com/render/math?math=1/a*(a	imes b)=b"> (using * everything goes back to modulo N), while  <img src="https://render.githubusercontent.com/render/math?math=1/a	imes (a	imes b)\ne b"> (1/a is a different number than the inverse of a with respect to op5, since they have a different modulo).
 > 
-> Some other things we didn't write here point in this direction too, like <img src="https://render.githubusercontent.com/render/math?math=1* (a\timesb) = 1* (a * b)"> even though <img src="https://render.githubusercontent.com/render/math?math=(a\timesb) \ne (a * b)">. 
+> Some other things we didn't write here point in this direction too, like <img src="https://render.githubusercontent.com/render/math?math=1* (a	imes b) = 1* (a * b)"> even though <img src="https://render.githubusercontent.com/render/math?math=(a	imes b) \ne (a * b)">. 
 
 ### Commutativity
 
-<img src="https://render.githubusercontent.com/render/math?math=a\timesb = b\timesa">
+<img src="https://render.githubusercontent.com/render/math?math=a	imes b = b	imes a">
 
 ```python
 # 5ab = 5ba : a × b = b × a
@@ -447,7 +447,7 @@ assert op(5, a, b) == op(5, b, a)
 
 ### Associativity
 
-<img src="https://render.githubusercontent.com/render/math?math=a\times(b\timesc) = (a\timesb)\timesc">
+<img src="https://render.githubusercontent.com/render/math?math=a	imes (b	imes c) = (a	imes b)	imes c">
 
 ```python
 # 5a5bc = 55abc = 5abc : a × (b × c) = (a × b) × c
@@ -456,7 +456,7 @@ assert op(5, a, op(5, b, c)) ==  op(5, op(5, a, b), c)
 
 ### Identity element
 
-<img src="https://render.githubusercontent.com/render/math?math=b\times1 = b">
+<img src="https://render.githubusercontent.com/render/math?math=b	imes 1 = b">
 
 ```python
 # 5b4a2a = b : b × (a*1/a) = b × 1 = b
@@ -466,7 +466,7 @@ assert op(5, b, op(4, a, op(2, a))) == b
 
 ### Absorbing element
 
-<img src="https://render.githubusercontent.com/render/math?math=b\times0 = 0">
+<img src="https://render.githubusercontent.com/render/math?math=b	imes 0 = 0">
 
 ```python
 5b3a1a = 3a1a : b × (a+(-a)) = b × 0 = 0
@@ -476,7 +476,7 @@ assert op(5, b, op(3, a, op(1, a))) == op(3, a, op(1, a))
 
 ### Invers-ish
 
-<img src="https://render.githubusercontent.com/render/math?math=1/a * (a\timesb) = b">
+<img src="https://render.githubusercontent.com/render/math?math=1/a * (a	imes b) = b">
 
 ```python
 # 42a5ab = b : 1/a * (a × b) = b
@@ -484,7 +484,7 @@ assert op(4, op(2, a), op(5, a, b)) == b
 # together with other permutations (because of commutativity)
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=1/a\times(a\timesb) \ne b">
+<img src="https://render.githubusercontent.com/render/math?math=1/a	imes (a	imes b) \ne b">
 
 ```python
 # 52a5ab != b : 1/a × a × b != b
@@ -591,7 +591,7 @@ assert op(6, b, op(3, op(1, a), a)) == op(4, op(2, a), a)
 
 <img src="https://render.githubusercontent.com/render/math?math=a^2 \ne a*a">
 
-<img src="https://render.githubusercontent.com/render/math?math=a^2 = a\timesa">
+<img src="https://render.githubusercontent.com/render/math?math=a^2 = a	imes a">
 
 ```python
 # 3 ^ 2 = 3 * 3
@@ -606,7 +606,7 @@ assert op(6, b, n2) != op(4, b, b)
 
 <img src="https://render.githubusercontent.com/render/math?math=(a^b)^c \ne a^{bc}">
 
-<img src="https://render.githubusercontent.com/render/math?math=(a^b)^c = a^{(b\timesc)}">
+<img src="https://render.githubusercontent.com/render/math?math=(a^b)^c = a^{(b	imes c)}">
 
 ```python
 # (2 ^ 3) ^ 4 = 2 ^ (3*4)
@@ -624,14 +624,14 @@ assert op(6, op(6, a, b), c) == op(6, a, op(5, b, c))
 assert op(6, a, op(1, n1)) != op(2, a)
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=a^b\timesa^c \ne a^{(b %2b c)}">
+<img src="https://render.githubusercontent.com/render/math?math=a^b	imes a^c \ne a^{(b %2b c)}">
 
 ```python
 # a^b × a^c != a^(b + c)
 assert op(5, op(6, a, b), op(6, a, c)) != op(6, a, op(5, b, c))
 ```
 
-<img src="https://render.githubusercontent.com/render/math?math=a^c\timesb^c = (a\timesb)^c">
+<img src="https://render.githubusercontent.com/render/math?math=a^c	imes b^c = (a	imes b)^c">
 
 ```python
 # a^c × b^c = (a × b)^c
